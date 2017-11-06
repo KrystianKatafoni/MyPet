@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -23,8 +24,8 @@ public class Rating {
     /**
      * Amount of votes
      */
-    @OneToMany(cascade = CascadeType.ALL)
-    private Set<Vote> votes;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "rating")
+    private Set<Vote> votes = new HashSet<>();
     /**
      * Final Rating of rating object.
      * This field should be set by method setFinalRating()

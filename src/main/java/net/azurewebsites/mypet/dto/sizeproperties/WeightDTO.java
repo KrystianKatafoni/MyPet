@@ -3,6 +3,9 @@ package net.azurewebsites.mypet.dto.sizeproperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import net.azurewebsites.mypet.domain.units.UnitOfWeight;
+import net.azurewebsites.mypet.dto.units.UnitOfWeightDTO;
+
 /**
  * @author Krystian Katafoni
  * @since 05.11.2017
@@ -15,4 +18,5 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class WeightDTO extends PropertyDTO {
+    private UnitOfWeightDTO uow;
 }

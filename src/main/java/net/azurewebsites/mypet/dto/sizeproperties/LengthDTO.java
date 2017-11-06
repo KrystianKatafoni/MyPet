@@ -3,6 +3,7 @@ package net.azurewebsites.mypet.dto.sizeproperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import net.azurewebsites.mypet.dto.units.UnitOfLengthDTO;
 
 /**
  * @author Krystian Katafoni
@@ -16,5 +17,5 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class LengthDTO extends PropertyDTO  {
-
+    private UnitOfLengthDTO uol;
 }

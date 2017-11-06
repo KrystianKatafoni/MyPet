@@ -2,6 +2,8 @@ package net.azurewebsites.mypet.domain;
 
 import lombok.Data;
 import net.azurewebsites.mypet.domain.ratings.Rating;
+import net.azurewebsites.mypet.domain.sizeproperties.Length;
+import net.azurewebsites.mypet.domain.sizeproperties.Weight;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -32,7 +34,10 @@ public class Pet {
 
     @OneToOne(cascade = CascadeType.ALL)
     private Rating rating;
-
+    @OneToOne
+    private Weight weight;
+    @OneToOne
+    private Length length;
     @Lob
     private Byte[] image;
 }

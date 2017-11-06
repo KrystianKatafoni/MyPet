@@ -1,6 +1,9 @@
 package net.azurewebsites.mypet.domain.ratings;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 /**
@@ -23,4 +26,6 @@ public class Vote {
      */
     @Enumerated(value = EnumType.ORDINAL)
     private Scale voteRating;
+    @ManyToOne
+    private Rating rating;
 }
