@@ -15,5 +15,5 @@ import lombok.Setter;
 @NoArgsConstructor
 public class CountryDTO {
     private Long id;
-    private String countryname;
+    private String name;
 }

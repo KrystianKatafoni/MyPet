@@ -1,4 +1,4 @@
-package net.azurewebsites.mypet.configuration;
+package net.azurewebsites.mypet.config;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
