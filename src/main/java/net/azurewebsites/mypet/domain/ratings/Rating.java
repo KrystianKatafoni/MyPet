@@ -5,7 +5,13 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Set;
 
+/**
+ * @author Krystian Katafoni
+ * @since 01.11.2017
+ * Rating class represents rating for pet in database.
+ */
 @Getter
 @Setter
 @EqualsAndHashCode
@@ -14,9 +20,16 @@ public class Rating {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private Integer votes;
-    @Lob
-    private Integer ratingSum;
+    /**
+     * Amount of votes
+     */
+    @OneToMany(cascade = CascadeType.ALL)
+    private Set<Vote> votes;
+    /**
+     * Final Rating of rating object.
+     * This field should be set by method setFinalRating()
+     * in case of creating or updating Rating.
+     */
     @Enumerated(value = EnumType.ORDINAL)
-    FinalRating finalRating;
+    private Scale finalRating;
 }

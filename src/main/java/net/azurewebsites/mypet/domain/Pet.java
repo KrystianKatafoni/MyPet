@@ -6,7 +6,11 @@ import net.azurewebsites.mypet.domain.ratings.Rating;
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
-
+/**
+ * @author Krystian Katafoni
+ * @since 01.11.2017
+ * Pet class represents one Pet in database.
+ */
 @Data
 @Entity
 public class Pet {
@@ -17,7 +21,7 @@ public class Pet {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "pet")
     private Set<Comment> comments = new HashSet<>();
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     private Country country;
 
     @Enumerated(value = EnumType.STRING)
@@ -28,4 +32,7 @@ public class Pet {
 
     @OneToOne(cascade = CascadeType.ALL)
     private Rating rating;
+
+    @Lob
+    private Byte[] image;
 }

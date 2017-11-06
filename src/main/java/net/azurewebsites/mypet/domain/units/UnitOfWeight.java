@@ -5,6 +5,11 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.Entity;
+/**
+ * @author Krystian Katafoni
+ * @since 01.11.2017
+ * UnitOfWeight class represents some unit of weight in database.
+ */
 @Getter
 @Setter
 @EqualsAndHashCode
