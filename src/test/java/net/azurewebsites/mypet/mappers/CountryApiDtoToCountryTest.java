@@ -19,8 +19,8 @@ public class CountryApiDtoToCountryTest {
 
     @Before
     public void setUp() throws Exception {
-        modelMapper = new ModelMapper();
-        converter = new CountryApiDtoToCountry(modelMapper);
+        this.modelMapper = new ModelMapper();
+        this.converter = new CountryApiDtoToCountry(modelMapper);
     }
 
     @Test
@@ -34,7 +34,7 @@ public class CountryApiDtoToCountryTest {
     }
 
     @Test
-    public void convert() throws Exception {
+    public void testConvert() throws Exception {
 
         //given
         CountryApiDTO countryApiDTO = new CountryApiDTO();

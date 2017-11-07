@@ -6,7 +6,6 @@ import org.springframework.context.annotation.ComponentScan;
 
 
 @SpringBootApplication
-
 public class MyPetApplication {
 
 	public static void main(String[] args) {

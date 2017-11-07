@@ -2,6 +2,7 @@ package net.azurewebsites.mypet.domain.sizeproperties;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import net.azurewebsites.mypet.domain.units.UnitOfLength;
 
@@ -16,6 +17,7 @@ import javax.persistence.ManyToOne;
 @Getter
 @Setter
 @EqualsAndHashCode
+@NoArgsConstructor
 @Entity
 public class Length extends Property{
     @ManyToOne

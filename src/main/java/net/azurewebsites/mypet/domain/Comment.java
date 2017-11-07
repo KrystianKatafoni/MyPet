@@ -2,6 +2,7 @@ package net.azurewebsites.mypet.domain;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -13,6 +14,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @EqualsAndHashCode(exclude = {"pet"})
+@NoArgsConstructor
 @Entity
 public class Comment {
     @Id
@@ -22,4 +24,7 @@ public class Comment {
     private Pet pet;
     @Lob
     private String text;
+    @ManyToOne
+    private Author author;
+
 }

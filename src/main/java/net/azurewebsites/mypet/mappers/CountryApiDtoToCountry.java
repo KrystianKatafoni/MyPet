@@ -14,7 +14,7 @@ public class CountryApiDtoToCountry {
     private Country country;
     public CountryApiDtoToCountry(ModelMapper modelMapper) {
         this.modelMapper = modelMapper;
-        country = new Country();
+        this.country = new Country();
     }
 
     public Country convert(CountryApiDTO countryApiDTO){

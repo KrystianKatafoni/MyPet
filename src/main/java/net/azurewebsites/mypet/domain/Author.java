@@ -5,24 +5,23 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 /**
  * @author Krystian Katafoni
- * @since 01.11.2017
- * Country class represents country in database.
+ * @since 07.11.2017
+ * Author class which represents author of comment.
  */
 @Getter
 @Setter
 @EqualsAndHashCode
 @NoArgsConstructor
 @Entity
-public class Country {
+public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String name;
-
-
+    private String nickname;
 }

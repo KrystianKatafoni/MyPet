@@ -1,6 +1,9 @@
 package net.azurewebsites.mypet.dto;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import net.azurewebsites.mypet.domain.KindOfAnimal;
 import net.azurewebsites.mypet.domain.Temper;
 import net.azurewebsites.mypet.dto.ratings.RatingDTO;
@@ -15,7 +18,9 @@ import java.util.Set;
  * PetDTO serves as a transformation for objects from
  * front-end layer to objects from back-end layer
  */
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
 public class PetDTO {
     private Long id;
     private Set<CommentDTO> comments = new HashSet<>();

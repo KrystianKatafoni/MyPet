@@ -1,9 +1,6 @@
 package net.azurewebsites.mypet.domain.ratings;
 
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 /**
@@ -11,10 +8,9 @@ import javax.persistence.*;
  * @since 06.11.2017
  * Vote class represents vote for pet in database.
  */
-
+@Setter
 @Getter
 @NoArgsConstructor
-@AllArgsConstructor
 @EqualsAndHashCode
 @Entity
 public class Vote {
