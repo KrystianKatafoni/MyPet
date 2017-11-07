@@ -25,7 +25,7 @@ public class CountryApiDtoToCountryTest {
 
     @Test
     public void testNullObject() throws Exception {
-        assertNull(converter.convert(null));
+        assertNotNull(converter.convert(null));
     }
 
     @Test
