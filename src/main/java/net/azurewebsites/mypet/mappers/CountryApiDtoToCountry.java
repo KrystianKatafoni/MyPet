@@ -5,16 +5,18 @@ import net.azurewebsites.mypet.domain.Country;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 @Component
-public class CountryApiToCountry {
-    ModelMapper modelMapper;
+public class CountryApiDtoToCountry {
 
-    public CountryApiToCountry(ModelMapper modelMapper) {
+    private ModelMapper modelMapper;
+
+    public CountryApiDtoToCountry(ModelMapper modelMapper) {
         this.modelMapper = modelMapper;
     }
 
-    public Country map(CountryApiDTO countryApiDTO){
+    public Country convert(CountryApiDTO countryApiDTO){
 
         Country country = modelMapper.map(countryApiDTO, Country.class);
         return country;
+
     }
 }

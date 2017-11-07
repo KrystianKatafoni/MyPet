@@ -16,12 +16,6 @@ public class CommentServiceImpl implements CommentService {
 
     @Override
     public Set<Comment> listAllComments() {
-        Comment comment = new Comment();
-        comment.setText("jakis");
-       CommentDTO commentDTO= modelMapper.map(comment,CommentDTO.class);
-       System.out.println(commentDTO.getText());
-        System.out.println(commentDTO.getId());
-       System.out.println("TY CHUJU JEBANY");
        return null;
     }
 }
