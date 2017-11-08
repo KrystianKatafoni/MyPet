@@ -11,7 +11,7 @@ import java.util.Set;
 /**
  * @author Krystian Katafoni
  * @since 01.11.2017
- * Country class represents country in database.
+ * Country entity represents country in database.
  */
 @Getter
 @Setter

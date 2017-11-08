@@ -6,16 +6,14 @@ import lombok.Setter;
 /**
  * @author Krystian Katafoni
  * @since 05.11.2017
- * Data Transfer Object class for Comment.
- * CommentDTO serves as a transformation for objects from
+ * Data Transfer Object class for Country.
+ * CountryDto serves as a transformation for objects from
  * front-end layer to objects from back-end layer
  */
 @Getter
 @Setter
 @NoArgsConstructor
-public class CommentDTO {
-
+public class CountryDto {
     private Long id;
-    private String text;
-
+    private String name;
 }

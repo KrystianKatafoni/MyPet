@@ -1,7 +1,6 @@
 package net.azurewebsites.mypet.services;
 
 import net.azurewebsites.mypet.domain.Comment;
-import net.azurewebsites.mypet.dto.CommentDTO;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 

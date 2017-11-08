@@ -1,7 +1,6 @@
 package net.azurewebsites.mypet.services;
 
-import net.azurewebsites.mypet.dto.CountryApiDTO;
-import net.azurewebsites.mypet.dto.CountryDTO;
+import net.azurewebsites.mypet.dto.CountryDto;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
@@ -9,7 +8,7 @@ import java.util.Set;
 public class CountryServiceImpl implements CountryService {
 
     @Override
-    public Set<CountryDTO> listAllCountryDTO() {
+    public Set<CountryDto> listAllCountryDTO() {
         return null;
     }
 }

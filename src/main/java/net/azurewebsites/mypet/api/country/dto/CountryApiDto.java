@@ -1,4 +1,4 @@
-package net.azurewebsites.mypet.dto;
+package net.azurewebsites.mypet.api.country.dto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -16,7 +16,7 @@ import java.util.Map;
 @Getter
 @Setter
 @NoArgsConstructor
-public class CountryApiDTO implements Serializable {
+public class CountryApiDto implements Serializable {
 
     private String name;
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();

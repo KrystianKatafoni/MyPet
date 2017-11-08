@@ -2,7 +2,7 @@ package net.azurewebsites.mypet.bootstrap;
 
 import net.azurewebsites.mypet.api.country.services.ApiCountryService;
 import net.azurewebsites.mypet.domain.Country;
-import net.azurewebsites.mypet.mappers.CountryApiDtoToCountry;
+import net.azurewebsites.mypet.mappers.countryapi.CountryApiDtoToCountry;
 import net.azurewebsites.mypet.repositories.CountryRepository;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;

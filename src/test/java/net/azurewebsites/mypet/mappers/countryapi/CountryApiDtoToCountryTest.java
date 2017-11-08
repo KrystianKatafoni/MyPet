@@ -1,7 +1,8 @@
-package net.azurewebsites.mypet.mappers;
+package net.azurewebsites.mypet.mappers.countryapi;
 
 import net.azurewebsites.mypet.domain.Country;
-import net.azurewebsites.mypet.dto.CountryApiDTO;
+import net.azurewebsites.mypet.api.country.dto.CountryApiDto;
+import net.azurewebsites.mypet.mappers.countryapi.CountryApiDtoToCountry;
 import org.junit.Before;
 import org.junit.Test;
 import org.modelmapper.ModelMapper;
@@ -30,18 +31,18 @@ public class CountryApiDtoToCountryTest {
 
     @Test
     public void testEmptyObject() throws Exception {
-        assertNotNull(converter.convert(new CountryApiDTO()));
+        assertNotNull(converter.convert(new CountryApiDto()));
     }
 
     @Test
     public void testConvert() throws Exception {
 
         //given
-        CountryApiDTO countryApiDTO = new CountryApiDTO();
-        countryApiDTO.setName(COUNTRY_NAME);
+        CountryApiDto countryApiDto = new CountryApiDto();
+        countryApiDto.setName(COUNTRY_NAME);
 
         //when
-        Country country = converter.convert(countryApiDTO);
+        Country country = converter.convert(countryApiDto);
 
         //then
         assertEquals(COUNTRY_NAME, country.getName());

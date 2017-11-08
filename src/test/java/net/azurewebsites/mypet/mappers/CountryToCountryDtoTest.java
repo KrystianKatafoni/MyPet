@@ -1,7 +1,7 @@
 package net.azurewebsites.mypet.mappers;
 
 import net.azurewebsites.mypet.domain.Country;
-import net.azurewebsites.mypet.dto.CountryDTO;
+import net.azurewebsites.mypet.dto.CountryDto;
 import org.junit.Before;
 import org.junit.Test;
 import org.modelmapper.ModelMapper;
@@ -39,11 +39,11 @@ public class CountryToCountryDtoTest {
         country.setName(COUNTRY_NAME);
         //when
 
-        CountryDTO countryDTO = converter.convert(country);
+        CountryDto countryDto = converter.convert(country);
 
         //then
-        assertEquals(COUNTRY_ID, countryDTO.getId());
-        assertEquals(COUNTRY_NAME, countryDTO.getName());
+        assertEquals(COUNTRY_ID, countryDto.getId());
+        assertEquals(COUNTRY_NAME, countryDto.getName());
 
     }
 }

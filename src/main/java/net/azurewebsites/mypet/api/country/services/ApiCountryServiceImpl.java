@@ -1,8 +1,8 @@
 package net.azurewebsites.mypet.api.country.services;
 
 import net.azurewebsites.mypet.domain.Country;
-import net.azurewebsites.mypet.dto.CountryApiDTO;
-import net.azurewebsites.mypet.mappers.CountryApiDtoToCountry;
+import net.azurewebsites.mypet.api.country.dto.CountryApiDto;
+import net.azurewebsites.mypet.mappers.countryapi.CountryApiDtoToCountry;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -19,7 +19,7 @@ public class ApiCountryServiceImpl implements ApiCountryService {
     private RestTemplate restTemplate;
     private CountryApiDtoToCountry countryApiDtoToCountry;
     private final String api_url;
-    private List<CountryApiDTO> countryApiDTOList;
+    private List<CountryApiDto> countryApiDtoList;
     private List<Country> country = new LinkedList<>();
 
     public ApiCountryServiceImpl(RestTemplate restTemplate, @Value("${api.url}") String api_url, CountryApiDtoToCountry countryApiDtoToCountry) {
@@ -33,8 +33,8 @@ public class ApiCountryServiceImpl implements ApiCountryService {
         UriComponentsBuilder uriBuilder = UriComponentsBuilder
                 .fromUriString(api_url)
                 .queryParam("fields", param);
-        CountryApiDTO[] countryApiDTO = restTemplate.getForObject(uriBuilder.toUriString(),CountryApiDTO[].class);
-        Optional<List<CountryApiDTO>> countryApiDTOListOpt = Optional.ofNullable(Arrays.asList(countryApiDTO));
+        CountryApiDto[] countryApiDto = restTemplate.getForObject(uriBuilder.toUriString(),CountryApiDto[].class);
+        Optional<List<CountryApiDto>> countryApiDTOListOpt = Optional.ofNullable(Arrays.asList(countryApiDto));
         if(countryApiDTOListOpt.isPresent()) {
             country = countryApiDTOListOpt.get().stream().map(countryApi -> countryApiDtoToCountry.convert(countryApi)).collect(Collectors.toList());
         }else{
