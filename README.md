@@ -6,7 +6,6 @@ Technology:
 Spring Boot
 Maven
 Junit
-Mockito
 Thymeleaf
 Lombok
 Hibernate
@@ -21,3 +20,4 @@ Application features:
 - used project Lombok
 - dependency injection
 - orm mapping via hibernate
+- 
