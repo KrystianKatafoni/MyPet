@@ -2,11 +2,17 @@ package net.azurewebsites.mypet.domain;
 
 import lombok.Data;
 import net.azurewebsites.mypet.domain.ratings.Rating;
+import net.azurewebsites.mypet.domain.sizeproperties.Length;
+import net.azurewebsites.mypet.domain.sizeproperties.Weight;
 
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
-
+/**
+ * @author Krystian Katafoni
+ * @since 01.11.2017
+ * Pet class represents one Pet in database.
+ */
 @Data
 @Entity
 public class Pet {
@@ -17,7 +23,7 @@ public class Pet {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "pet")
     private Set<Comment> comments = new HashSet<>();
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     private Country country;
 
     @Enumerated(value = EnumType.STRING)
@@ -28,4 +34,16 @@ public class Pet {
 
     @OneToOne(cascade = CascadeType.ALL)
     private Rating rating;
+
+    @OneToOne
+    private Weight weight;
+
+    @OneToOne
+    private Length length;
+
+    @ManyToOne
+    private Author author;
+
+    @Lob
+    private Byte[] image;
 }

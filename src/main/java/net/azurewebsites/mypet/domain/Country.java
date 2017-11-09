@@ -2,19 +2,27 @@ package net.azurewebsites.mypet.domain;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-
+import java.util.HashSet;
+import java.util.Set;
+/**
+ * @author Krystian Katafoni
+ * @since 01.11.2017
+ * Country entity represents country in database.
+ */
 @Getter
 @Setter
-@EqualsAndHashCode(exclude = {"pet"})
+@EqualsAndHashCode
+@NoArgsConstructor
 @Entity
 public class Country {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @OneToOne
-    private Pet pet;
-    private String countryname;
+    private String name;
+
+
 }
