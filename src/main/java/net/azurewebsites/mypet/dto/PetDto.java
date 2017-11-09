@@ -6,6 +6,8 @@ import lombok.Setter;
 import net.azurewebsites.mypet.domain.KindOfAnimal;
 import net.azurewebsites.mypet.domain.Temper;
 import net.azurewebsites.mypet.dto.ratings.RatingDto;
+import net.azurewebsites.mypet.dto.sizeproperties.LengthDto;
+import net.azurewebsites.mypet.dto.sizeproperties.WeightDto;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -27,5 +29,7 @@ public class PetDto {
     private Temper temper;
     private KindOfAnimal kindOfAnimal;
     private RatingDto rating;
+    private WeightDto weight;
+    private LengthDto length;
     private Byte[] image;
 }

@@ -34,10 +34,16 @@ public class Pet {
 
     @OneToOne(cascade = CascadeType.ALL)
     private Rating rating;
+
     @OneToOne
     private Weight weight;
+
     @OneToOne
     private Length length;
+
+    @ManyToOne
+    private Author author;
+
     @Lob
     private Byte[] image;
 }

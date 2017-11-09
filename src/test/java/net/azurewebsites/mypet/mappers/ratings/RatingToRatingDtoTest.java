@@ -4,7 +4,6 @@ import net.azurewebsites.mypet.domain.ratings.Rating;
 import net.azurewebsites.mypet.domain.ratings.Scale;
 import net.azurewebsites.mypet.domain.ratings.Vote;
 import net.azurewebsites.mypet.dto.ratings.RatingDto;
-import net.azurewebsites.mypet.dto.ratings.VoteDto;
 import org.junit.Before;
 import org.junit.Test;
 import org.modelmapper.ModelMapper;

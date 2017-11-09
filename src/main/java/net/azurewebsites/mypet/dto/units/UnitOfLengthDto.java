@@ -1,6 +1,7 @@
 package net.azurewebsites.mypet.dto.units;
 
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,10 +12,7 @@ import lombok.Setter;
  * UnitOfLengthDto serves as a transformation for objects from
  * front-end layer to objects from back-end layer
  */
-@Getter
-@Setter
 @NoArgsConstructor
-
 public class UnitOfLengthDto extends UnitDto {
 
 }

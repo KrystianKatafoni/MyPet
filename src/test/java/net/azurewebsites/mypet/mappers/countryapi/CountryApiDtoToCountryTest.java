@@ -1,16 +1,13 @@
 package net.azurewebsites.mypet.mappers.countryapi;
 
-import net.azurewebsites.mypet.domain.Country;
 import net.azurewebsites.mypet.api.country.dto.CountryApiDto;
-import net.azurewebsites.mypet.mappers.countryapi.CountryApiDtoToCountry;
+import net.azurewebsites.mypet.domain.Country;
 import org.junit.Before;
 import org.junit.Test;
 import org.modelmapper.ModelMapper;
 
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
 
 public class CountryApiDtoToCountryTest {
     public static final Long COUNTRY_ID = 2L;

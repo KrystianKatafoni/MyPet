@@ -11,8 +11,7 @@ import javax.persistence.Entity;
  * @since 01.11.2017
  * UnitOfWeight class represents some unit of weight in database.
  */
-@Getter
-@Setter
+
 @EqualsAndHashCode
 @NoArgsConstructor
 @Entity
