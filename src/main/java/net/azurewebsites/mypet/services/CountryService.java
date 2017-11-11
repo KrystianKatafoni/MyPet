@@ -6,5 +6,5 @@ import java.util.Set;
 
 public interface CountryService {
 
-    Set<CountryDto> listAllCountryDTO();
+    Set<CountryDto> listAllCountries();
 }

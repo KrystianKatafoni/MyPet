@@ -33,6 +33,7 @@ public class RunMyPet implements ApplicationListener<ContextRefreshedEvent> {
     private void saveCountriesToDB(){
         countryList = apiCountryService.getCountries(PARAM);
         countryList.stream().forEach(country ->countryRepository.save(country));
+        System.out.println("zapisuje");
 
     }
 }

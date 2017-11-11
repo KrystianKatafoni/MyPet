@@ -9,6 +9,7 @@ import net.azurewebsites.mypet.dto.ratings.RatingDto;
 import net.azurewebsites.mypet.dto.sizeproperties.LengthDto;
 import net.azurewebsites.mypet.dto.sizeproperties.WeightDto;
 
+import javax.validation.constraints.NotBlank;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -24,12 +25,15 @@ import java.util.Set;
 @NoArgsConstructor
 public class PetDto {
     private Long id;
-    private Set<CommentDto> comments = new HashSet<>();
+
     private CountryDto country;
     private Temper temper;
     private KindOfAnimal kindOfAnimal;
     private RatingDto rating;
     private WeightDto weight;
     private LengthDto length;
+    private AuthorDto author;
+    private Set<CommentDto> comments = new HashSet<>();
+    @NotBlank
     private Byte[] image;
 }

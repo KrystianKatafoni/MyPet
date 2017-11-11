@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.validation.constraints.NotBlank;
+
 /**
  * @author Krystian Katafoni
  * @since 07.11.2017
@@ -16,5 +18,6 @@ import lombok.Setter;
 @NoArgsConstructor
 public class AuthorDto {
     private Long id;
+    @NotBlank
     private String nickname;
 }

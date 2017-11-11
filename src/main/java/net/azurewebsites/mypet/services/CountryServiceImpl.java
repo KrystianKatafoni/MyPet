@@ -8,7 +8,7 @@ import java.util.Set;
 public class CountryServiceImpl implements CountryService {
 
     @Override
-    public Set<CountryDto> listAllCountryDTO() {
+    public Set<CountryDto> listAllCountries() {
         return null;
     }
 }
