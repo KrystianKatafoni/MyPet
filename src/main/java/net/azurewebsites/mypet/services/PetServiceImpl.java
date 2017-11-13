@@ -25,7 +25,7 @@ public class PetServiceImpl implements PetService{
     }
 
     @Override
-    public Set<Pet> getPets() {
+    public Set<Pet> listAllPets() {
         return null;
     }
 

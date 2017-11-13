@@ -12,8 +12,10 @@ import javax.persistence.Entity;
  * UnitOfWeight class represents some unit of weight in database.
  */
 
-@EqualsAndHashCode
 @NoArgsConstructor
 @Entity
 public class UnitOfWeight extends Unit {
+    public UnitOfWeight(String description){
+        setDescription(description);
+    }
 }

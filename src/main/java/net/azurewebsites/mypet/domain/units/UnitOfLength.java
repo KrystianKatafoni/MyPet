@@ -12,8 +12,10 @@ import javax.persistence.Entity;
  * UnitOfLength class represents some unit of length in database.
  */
 
-@EqualsAndHashCode
 @NoArgsConstructor
 @Entity
 public class UnitOfLength extends Unit {
+    public UnitOfLength(String description){
+        setDescription(description);
+    }
 }

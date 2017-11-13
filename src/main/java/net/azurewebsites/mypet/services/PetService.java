@@ -6,7 +6,7 @@ import net.azurewebsites.mypet.dto.PetDto;
 import java.util.Set;
 
 public interface PetService {
-    Set<Pet> getPets();
+    Set<Pet> listAllPets();
     PetDto savePetDto(PetDto petDto);
 
 }

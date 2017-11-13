@@ -25,7 +25,6 @@ import java.util.Set;
 @NoArgsConstructor
 public class PetDto {
     private Long id;
-
     private CountryDto country;
     private Temper temper;
     private KindOfAnimal kindOfAnimal;
@@ -35,5 +34,7 @@ public class PetDto {
     private AuthorDto author;
     private Set<CommentDto> comments = new HashSet<>();
     @NotBlank
+    private String name;
+
     private Byte[] image;
 }

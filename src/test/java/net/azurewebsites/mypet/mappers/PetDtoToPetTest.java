@@ -54,9 +54,9 @@ public class PetDtoToPetTest {
         this.converter = new PetDtoToPet(modelMapper);
     }
 
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void testNullObject() throws Exception {
-        assertNotNull(converter.convert(null));
+        converter.convert(null);
     }
 
     @Test
