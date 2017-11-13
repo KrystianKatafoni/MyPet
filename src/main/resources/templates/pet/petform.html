@@ -18,12 +18,12 @@
             crossorigin="anonymous" ></script>
 </head>
 <body>
-<!--/*@thymesVar id="pet" type="net.azurewebsites.mypet.domain.Pet"*/-->
+<!--/*@thymesVar id="petDto" type="net.azurewebsites.mypet.dto.PetDto"*/-->
 
 <div class = "container-fluid" style="margin-top: 20px">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
-            <form th:object = "${pet}" th:action="@{/pet/}" method = "post">
+            <form th:object = "${petDto}" th:action="@{/pet/}" method = "post">
 
                 <div class="panel-group">
                     <div class="panel panel-primary">
@@ -34,7 +34,7 @@
                             <div class="col-md-3 form-group">
                                 <label>Pet name:</label>
                                 <input type="text" class="form-control" th:field="*{name}"/>
-
+                                <input type="hidden" th:field="${petDto.rating.finalRating}" th:value="${T(net.azurewebsites.mypet.domain.ratings.Scale).COOL}" />
                             </div>
                             <div class="col-md-3 form-group">
                                 <label>Kind of Animal:</label>
@@ -56,27 +56,49 @@
                                     </option>
                                 </select>
                             </div>
-                            <!--/*@thymesVar id="countries" type="net.azurewebsites.mypet.domain.Country"*/-->
+                            <!--/*@thymesVar id="pet" type="net.azurewebsites.mypet.dto.PetDto"*/-->
                             <div class="col-md-3 form-group">
                                 <label>Country:</label>
-                                <select class="form-control" th:field="${countries}">
+                                <select class="form-control" th:field="${petDto.country.id}">
                                     <option th:each="countryVal : ${countries}"
-                                            th:value="${countryVal}"
+                                            th:value="${countryVal.id}"
                                             th:text="${countryVal.getName()}"
+                                    >val
+                                    </option>
+                                </select>
+
+                            </div>
+                            <div class="col-md-3 form-group">
+                                <label>Weight:</label>
+                                <input type="text" class="form-control" th:field="*{weight.value}"/>
+                            </div>
+                            <div class="col-md-3 form-group">
+                                <label>Unit:</label>
+                                <select class="form-control" th:name="weight.uow.id" >
+                                    <option th:each="uowEach : ${uowList}"
+                                            th:value="${uowEach.id}"
+                                            th:text="${uowEach.getDescription()}"
                                     >val
                                     </option>
                                 </select>
                             </div>
-                            <!--/*@thymesVar id="pet" type="net.azurewebsites.mypet.domain.pet"*/-->
                             <div class="col-md-3 form-group">
-                                <label>Country:</label>
-                                <select class="form-control" th:field="*{}">
-                                    <option th:each="countryVal : ${countries}"
-                                            th:value="${countryVal}"
-                                            th:text="${countryVal.getName()}"
+                                <label>Length:</label>
+                                <input type="text" class="form-control" th:field="*{length.value}"/>
+                            </div>
+                            <div class="col-md-3 form-group">
+                                <label>Unit:</label>
+                                <select class="form-control" th:name="length.uol.id" >
+                                    <option th:each="uolEach : ${uolList}"
+                                            th:value="${uolEach.id}"
+                                            th:text="${uolEach.getDescription()}"
                                     >val
                                     </option>
                                 </select>
+                            </div>
+                            <div class="col-md-3 form-group">
+                                <label>Author:</label>
+                                <input type="text" class="form-control" th:field="*{author.nickname}"/>
                             </div>
                         </div>
 

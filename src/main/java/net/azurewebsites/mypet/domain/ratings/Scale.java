@@ -6,4 +6,5 @@ package net.azurewebsites.mypet.domain.ratings;
  */
 public enum Scale {
     VERY_BAD, BAD, NICE, COOL, AWSOME
+
 }

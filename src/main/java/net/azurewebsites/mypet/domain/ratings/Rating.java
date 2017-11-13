@@ -33,6 +33,6 @@ public class Rating {
      * This field should be set by method setFinalRating()
      * in case of creating or updating Rating.
      */
-    @Enumerated(value = EnumType.ORDINAL)
+    @Enumerated(value = EnumType.STRING)
     private Scale finalRating;
 }

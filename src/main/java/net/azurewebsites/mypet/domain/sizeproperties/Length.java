@@ -6,7 +6,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import net.azurewebsites.mypet.domain.units.UnitOfLength;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
 
 /**
@@ -20,6 +22,7 @@ import javax.persistence.ManyToOne;
 @NoArgsConstructor
 @Entity
 public class Length extends Property{
+
     @ManyToOne
     private UnitOfLength uol;
 }

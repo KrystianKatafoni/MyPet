@@ -2,6 +2,7 @@ package net.azurewebsites.mypet.domain;
 
 import lombok.Data;
 import net.azurewebsites.mypet.domain.ratings.Rating;
+import net.azurewebsites.mypet.domain.ratings.Scale;
 import net.azurewebsites.mypet.domain.sizeproperties.Length;
 import net.azurewebsites.mypet.domain.sizeproperties.Weight;
 
@@ -23,7 +24,7 @@ public class Pet {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "pet")
     private Set<Comment> comments = new HashSet<>();
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private Country country;
 
     @Enumerated(value = EnumType.STRING)
@@ -35,13 +36,13 @@ public class Pet {
     @OneToOne(cascade = CascadeType.ALL)
     private Rating rating;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Weight weight;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Length length;
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     private Author author;
 
     @Lob

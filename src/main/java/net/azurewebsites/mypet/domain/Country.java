@@ -4,6 +4,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import net.azurewebsites.mypet.domain.ratings.Scale;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -23,6 +24,4 @@ public class Country {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
-
-
 }

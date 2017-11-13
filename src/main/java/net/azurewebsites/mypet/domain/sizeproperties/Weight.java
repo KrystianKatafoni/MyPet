@@ -7,7 +7,9 @@ import lombok.Setter;
 import net.azurewebsites.mypet.domain.sizeproperties.Property;
 import net.azurewebsites.mypet.domain.units.UnitOfWeight;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
 
 /**
@@ -21,6 +23,7 @@ import javax.persistence.ManyToOne;
 @NoArgsConstructor
 @Entity
 public class Weight extends Property {
+
     @ManyToOne
     private UnitOfWeight uow;
 }

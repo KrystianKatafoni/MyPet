@@ -34,8 +34,9 @@ public class PetDtoToPet {
             try {
                 pet = modelMapper.map(petDtoOpt.get(), Pet.class);
             }catch(MappingException message){
-                message.printStackTrace();
                 log.error("Error during PetDto to Pet mapping");
+                message.printStackTrace();
+
             }
         }else{
             petDtoOpt.orElseThrow(IllegalArgumentException::new);
