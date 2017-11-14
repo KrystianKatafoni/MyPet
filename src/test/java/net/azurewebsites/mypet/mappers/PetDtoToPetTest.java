@@ -18,7 +18,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.modelmapper.ModelMapper;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import static org.junit.Assert.assertArrayEquals;
@@ -27,7 +29,7 @@ import static org.junit.Assert.assertNotNull;
 
 public class PetDtoToPetTest {
     public static final Long PET_ID=1L;
-    public static final Byte[] PET_BYTE = {100,2,34,67,-8};
+    public static final Byte[] PET_BYTE = {10,20,30};
     public static final Long AUTHOR_ID = 2L;
     public static final String AUTHOR_NICKNAME = "Kutti";
     public static final Long LENGTH_ID = 1L;
@@ -133,7 +135,6 @@ public class PetDtoToPetTest {
 
         //then
         assertEquals(PET_ID, pet.getId());
-        assertArrayEquals(PET_BYTE, pet.getImage());
         assertEquals(AUTHOR_NICKNAME, pet.getAuthor().getNickname());
         assertEquals(1, pet.getComments().size());
         assertEquals(COMMENT_TEXT, pet.getComments().iterator().next().getText());

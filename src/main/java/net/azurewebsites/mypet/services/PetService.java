@@ -8,5 +8,6 @@ import java.util.Set;
 public interface PetService {
     Set<Pet> listAllPets();
     PetDto savePetDto(PetDto petDto);
+    Pet findPetById(Long id);
 
 }

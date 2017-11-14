@@ -46,4 +46,10 @@ public class PetServiceImpl implements PetService{
             }
             return petDtoReturn;
     }
+
+    @Override
+    public Pet findPetById(Long id) {
+       Pet pet =  petRepository.findById(id).get();
+       return pet;
+    }
 }

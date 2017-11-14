@@ -13,14 +13,13 @@ import org.junit.Before;
 import org.junit.Test;
 import org.modelmapper.ModelMapper;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 import static org.junit.Assert.*;
 
 public class PetToPetDtoTest {
     public static final Long PET_ID=1L;
-    public static final Byte[] PET_BYTE = {100,2,34,67,-8};
+    public static final Byte[] PET_BYTE = {10,20,30};
     public static final Long AUTHOR_ID = 2L;
     public static final String AUTHOR_NICKNAME = "Kutti";
     public static final Long LENGTH_ID = 1L;
@@ -126,7 +125,6 @@ public class PetToPetDtoTest {
 
         //then
         assertEquals(PET_ID, petDto.getId());
-        assertArrayEquals(PET_BYTE, petDto.getImage());
         assertEquals(AUTHOR_NICKNAME, petDto.getAuthor().getNickname());
         assertEquals(1, petDto.getComments().size());
         assertEquals(COMMENT_TEXT, petDto.getComments().iterator().next().getText());

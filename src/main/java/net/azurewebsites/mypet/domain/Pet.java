@@ -8,6 +8,7 @@ import net.azurewebsites.mypet.domain.sizeproperties.Weight;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 /**
  * @author Krystian Katafoni
@@ -44,7 +45,6 @@ public class Pet {
 
     @ManyToOne(cascade=CascadeType.ALL)
     private Author author;
-
     @Lob
     private Byte[] image;
 }
