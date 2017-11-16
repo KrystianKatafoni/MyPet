@@ -20,7 +20,7 @@ public class Vote {
     /**
      * Enum value of voting.
      */
-    @Enumerated(value = EnumType.ORDINAL)
+    @Enumerated(value = EnumType.STRING)
     private Scale voteRating;
     @ManyToOne
     private Rating rating;

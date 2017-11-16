@@ -1,5 +1,6 @@
 package net.azurewebsites.mypet.mappers.sizeproperties;
 
+import lombok.extern.slf4j.Slf4j;
 import net.azurewebsites.mypet.domain.sizeproperties.Length;
 import net.azurewebsites.mypet.dto.sizeproperties.LengthDto;
 import org.modelmapper.ModelMapper;
@@ -12,6 +13,7 @@ import java.util.Optional;
  * @since 09.11.2017
  * Mapper class which handle mapping objects: LengthDto->Length
  */
+@Slf4j
 @Component
 public class LengthDtoToLength {
     ModelMapper modelMapper;
@@ -31,6 +33,7 @@ public class LengthDtoToLength {
         Optional<LengthDto> ldOpt = Optional.ofNullable(lengthDto);
         if (ldOpt.isPresent()){
             length = modelMapper.map(ldOpt.get(), Length.class);
+            log.debug("Mapping LengthDto->Length");
         }
         return length;
     }

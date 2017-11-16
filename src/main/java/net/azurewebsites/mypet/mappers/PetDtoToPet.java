@@ -22,6 +22,7 @@ public class PetDtoToPet {
 
     public PetDtoToPet(ModelMapper modelMapper) {
         this.modelMapper = modelMapper;
+        pet = new Pet();
     }
     /**
      *
@@ -31,15 +32,8 @@ public class PetDtoToPet {
     public Pet convert(PetDto petDto){
         Optional<PetDto> petDtoOpt = Optional.ofNullable(petDto);
         if (petDtoOpt.isPresent()){
-            try {
                 pet = modelMapper.map(petDtoOpt.get(), Pet.class);
-            }catch(MappingException message){
-                log.error("Error during PetDto to Pet mapping");
-                message.printStackTrace();
-
-            }
-        }else{
-            petDtoOpt.orElseThrow(IllegalArgumentException::new);
+                log.debug("Mapping PetDto->Pet");
         }
         return pet;
     }

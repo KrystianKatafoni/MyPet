@@ -56,7 +56,7 @@ public class PetDtoToPetTest {
         this.converter = new PetDtoToPet(modelMapper);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testNullObject() throws Exception {
         converter.convert(null);
     }
@@ -98,7 +98,7 @@ public class PetDtoToPetTest {
         lengthDto.setId(LENGTH_ID);
         lengthDto.setValue(LENGTH_VALUE);
         lengthDto.setUol(uolDto);
-        //author
+        //authorDto
         authorDto.setId(AUTHOR_ID);
         authorDto.setNickname(AUTHOR_NICKNAME);
         //vote

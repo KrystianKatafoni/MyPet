@@ -8,7 +8,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-
+/**
+ * @author Krystian Katafoni
+ * @since 16.11.2017
+ *
+ */
 @Slf4j
 @Controller
 public class ImageController {

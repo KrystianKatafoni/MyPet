@@ -1,5 +1,6 @@
 package net.azurewebsites.mypet.mappers;
 
+import lombok.extern.slf4j.Slf4j;
 import net.azurewebsites.mypet.domain.Pet;
 import net.azurewebsites.mypet.dto.PetDto;
 import org.modelmapper.ModelMapper;
@@ -12,6 +13,7 @@ import java.util.Optional;
  * @since 08.11.2017
  * Mapper class which handle mapping objects: Rating->RatingDto
  */
+@Slf4j
 @Component
 public class PetToPetDto {
     ModelMapper modelMapper;
@@ -30,6 +32,7 @@ public class PetToPetDto {
         Optional<Pet> petOpt = Optional.ofNullable(pet);
         if (petOpt.isPresent()){
             petDto = modelMapper.map(petOpt.get(),PetDto.class);
+            log.debug("Mapping Pet->PetDto");
         }
         return petDto;
     }

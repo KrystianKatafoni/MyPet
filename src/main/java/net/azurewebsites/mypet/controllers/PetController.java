@@ -17,9 +17,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
 import java.util.Optional;
-
+/**
+ * @author Krystian Katafoni
+ * @since 16.11.2017
+ *
+ */
 @Slf4j
 @Controller
+
 public class PetController {
     PetService petService;
     CountryService countryService;

@@ -5,7 +5,11 @@ import lombok.Getter;
 import lombok.Setter;
 import net.azurewebsites.mypet.dto.PetDto;
 
-
+/**
+ * @author Krystian Katafoni
+ * @since 16.11.2017
+ *
+ */
 @Getter
 @Setter
 @AllArgsConstructor

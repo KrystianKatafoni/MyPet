@@ -1,5 +1,6 @@
 package net.azurewebsites.mypet.mappers.units;
 
+import lombok.extern.slf4j.Slf4j;
 import net.azurewebsites.mypet.domain.units.UnitOfWeight;
 import net.azurewebsites.mypet.dto.units.UnitOfWeightDto;
 import org.modelmapper.ModelMapper;
@@ -12,6 +13,7 @@ import java.util.Optional;
  * @since 09.11.2017
  * Mapper class which handle mapping objects: UnitOfWeight->UnitOfWeightDto
  */
+@Slf4j
 @Component
 public class UowToUowDto {
     private ModelMapper modelMapper;
@@ -31,6 +33,7 @@ public class UowToUowDto {
         Optional<UnitOfWeight> uowOpt = Optional.ofNullable(uow);
         if (uowOpt.isPresent()) {
             uowDto = modelMapper.map(uowOpt.get(), UnitOfWeightDto.class);
+            log.debug("Mapping UnitOfWeight->UnitOfWeightDto");
         }
         return uowDto;
     }

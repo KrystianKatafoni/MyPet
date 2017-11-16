@@ -1,5 +1,6 @@
 package net.azurewebsites.mypet.mappers.units;
 
+import lombok.extern.slf4j.Slf4j;
 import net.azurewebsites.mypet.domain.units.UnitOfLength;
 import net.azurewebsites.mypet.dto.units.UnitOfLengthDto;
 import org.modelmapper.ModelMapper;
@@ -11,6 +12,7 @@ import java.util.Optional;
  * @since 09.11.2017
  * Mapper class which handle mapping objects: UnitOfLength->UnitOfLengthDto
  */
+@Slf4j
 @Component
 public class UolToUolDto {
     private ModelMapper modelMapper;
@@ -30,6 +32,7 @@ public class UolToUolDto {
         Optional<UnitOfLength> uolOpt = Optional.ofNullable(uol);
         if(uolOpt.isPresent()){
             uolDto = modelMapper.map(uolOpt.get(), UnitOfLengthDto.class);
+            log.debug("Mapping UnitOfLength -> UnitOfLengthDto");
         }
         return uolDto;
     }

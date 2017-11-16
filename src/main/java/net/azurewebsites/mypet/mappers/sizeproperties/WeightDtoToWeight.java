@@ -1,5 +1,6 @@
 package net.azurewebsites.mypet.mappers.sizeproperties;
 
+import lombok.extern.slf4j.Slf4j;
 import net.azurewebsites.mypet.domain.sizeproperties.Weight;
 import net.azurewebsites.mypet.dto.sizeproperties.WeightDto;
 import org.modelmapper.ModelMapper;
@@ -12,6 +13,7 @@ import java.util.Optional;
  * @since 09.11.2017
  * Mapper class which handle mapping objects: WeightDto->Weight
  */
+@Slf4j
 @Component
 public class WeightDtoToWeight {
     ModelMapper modelMapper;
@@ -31,6 +33,7 @@ public class WeightDtoToWeight {
         Optional<WeightDto> wdOpt = Optional.ofNullable(weightDto);
         if (wdOpt.isPresent()){
             weight = modelMapper.map(wdOpt.get(), Weight.class);
+            log.debug("Mapping WeightDto->Weight");
         }
         return weight;
     }

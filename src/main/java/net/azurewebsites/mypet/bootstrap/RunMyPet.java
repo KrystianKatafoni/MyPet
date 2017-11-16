@@ -15,6 +15,11 @@ import org.springframework.stereotype.Component;
 
 import java.util.LinkedList;
 import java.util.List;
+/**
+ * @author Krystian Katafoni
+ * @since 05.11.2017
+ * Run class for object initialization
+ */
 @Slf4j
 @Component
 public class RunMyPet implements ApplicationListener<ContextRefreshedEvent> {
@@ -43,12 +48,19 @@ public class RunMyPet implements ApplicationListener<ContextRefreshedEvent> {
         initUnits();
     }
 
+    /**
+     * Save countries from RestApi to Database
+     */
     private void saveCountriesToDB(){
         countryList = apiCountryService.getCountries(PARAM);
 
         countryList.stream().forEach(country ->countryRepository.save(country));
         log.debug("Country list saved from API");
     }
+
+    /**
+     * Initialization of units - weight and length
+     */
     private void initUnits(){
         //units of length
         List<UnitOfLength> unitsOfLength = new LinkedList<>();

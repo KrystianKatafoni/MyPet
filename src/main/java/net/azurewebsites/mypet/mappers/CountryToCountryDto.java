@@ -1,5 +1,6 @@
 package net.azurewebsites.mypet.mappers;
 
+import lombok.extern.slf4j.Slf4j;
 import net.azurewebsites.mypet.domain.Country;
 import net.azurewebsites.mypet.dto.CountryDto;
 import org.modelmapper.ModelMapper;
@@ -11,6 +12,7 @@ import java.util.Optional;
  * @since 08.11.2017
  * Mapper class which handle mapping objects: Country->CountryDto
  */
+@Slf4j
 @Component
 public class CountryToCountryDto {
 
@@ -30,6 +32,7 @@ public class CountryToCountryDto {
         Optional<Country> cOpt = Optional.ofNullable(country);
         if(cOpt.isPresent()) {
             countryDto = modelMapper.map(cOpt.get(), CountryDto.class);
+            log.debug("Mapping Country->CountryDto");
         }
         return countryDto;
     }

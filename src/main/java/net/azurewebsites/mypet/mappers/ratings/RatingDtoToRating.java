@@ -1,5 +1,6 @@
 package net.azurewebsites.mypet.mappers.ratings;
 
+import lombok.extern.slf4j.Slf4j;
 import net.azurewebsites.mypet.domain.ratings.Rating;
 import net.azurewebsites.mypet.dto.ratings.RatingDto;
 import org.modelmapper.ModelMapper;
@@ -11,6 +12,7 @@ import java.util.Optional;
  * @since 08.11.2017
  * Mapper class which handle mapping objects: RatingDto->Rating
  */
+@Slf4j
 @Component
 public class RatingDtoToRating {
     ModelMapper modelMapper;
@@ -30,6 +32,7 @@ public class RatingDtoToRating {
         Optional<RatingDto> rdOpt = Optional.ofNullable(ratingDto);
         if(rdOpt.isPresent()){
             rating = modelMapper.map(rdOpt.get(), Rating.class);
+            log.debug("Mapping RatingDto->Rating");
         }
         return rating;
     }

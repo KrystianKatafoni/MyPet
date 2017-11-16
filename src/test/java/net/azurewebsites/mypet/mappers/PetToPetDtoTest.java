@@ -88,7 +88,7 @@ public class PetToPetDtoTest {
         length.setId(LENGTH_ID);
         length.setValue(LENGTH_VALUE);
         length.setUol(uol);
-        //author
+        //authorDto
         author.setId(AUTHOR_ID);
         author.setNickname(AUTHOR_NICKNAME);
         //vote

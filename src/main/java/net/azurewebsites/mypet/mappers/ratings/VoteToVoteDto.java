@@ -1,5 +1,6 @@
 package net.azurewebsites.mypet.mappers.ratings;
 
+import lombok.extern.slf4j.Slf4j;
 import net.azurewebsites.mypet.domain.ratings.Vote;
 import net.azurewebsites.mypet.dto.ratings.VoteDto;
 import org.modelmapper.ModelMapper;
@@ -11,6 +12,7 @@ import java.util.Optional;
  * @since 08.11.2017
  * Mapper class which handle mapping objects: Vote->VoteDto
  */
+@Slf4j
 @Component
 public class VoteToVoteDto {
     ModelMapper modelMapper;
@@ -30,6 +32,7 @@ public class VoteToVoteDto {
         Optional<Vote> vOpt = Optional.ofNullable(vote);
         if(vOpt.isPresent()){
             voteDto = modelMapper.map(vOpt.get(),VoteDto.class);
+            log.debug("Mapping Vote->VoteDto");
         }
         return voteDto;
     }
