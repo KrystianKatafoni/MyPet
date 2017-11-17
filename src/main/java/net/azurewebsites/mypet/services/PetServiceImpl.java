@@ -3,11 +3,13 @@ package net.azurewebsites.mypet.services;
 import lombok.extern.slf4j.Slf4j;
 import net.azurewebsites.mypet.domain.Pet;
 import net.azurewebsites.mypet.dto.PetDto;
+import net.azurewebsites.mypet.exceptions.NotFoundException;
 import net.azurewebsites.mypet.mappers.PetDtoToPet;
 import net.azurewebsites.mypet.mappers.PetToPetDto;
 import net.azurewebsites.mypet.repositories.PetRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 
 import java.util.Optional;
 import java.util.Set;
@@ -49,7 +51,16 @@ public class PetServiceImpl implements PetService{
 
     @Override
     public Pet findPetById(Long id) {
-       Pet pet =  petRepository.findById(id).get();
-       return pet;
+        Optional<Pet> petOpt = petRepository.findById(id);
+        petOpt.orElseThrow(NotFoundException::new);
+       return petOpt.get();
+    }
+
+    @Override
+    public PetDto findPetDtoById(Long id) {
+        Optional<Pet> petOpt = petRepository.findById(id);
+        petOpt.orElseThrow(NotFoundException::new);
+        PetDto petDto = petToPetDto.convert(petOpt.get());
+        return petDto;
     }
 }

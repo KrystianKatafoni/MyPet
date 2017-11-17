@@ -34,7 +34,7 @@ public class PetController {
 
     public PetController(PetService petService, CountryService countryService,
                          UnitOfLengthService unitOfLengthService, UnitOfWeightService unitOfWeightService,
-                         ApplicationEventPublisher publisher, SavedPetEventProducer producer) {
+                        SavedPetEventProducer producer) {
         this.petService = petService;
         this.countryService = countryService;
         this.unitOfLengthService = unitOfLengthService;
@@ -56,7 +56,6 @@ public class PetController {
         model.addAttribute("uolList", unitOfLengthService.listAllUols());
         model.addAttribute("uowList", unitOfWeightService.listAllUows());
         model.addAttribute("def", Scale.VERY_BAD);
-        model.addAttribute("imageId", new Integer(-1));
         return "pet/petform";
     }
 

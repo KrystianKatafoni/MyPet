@@ -9,5 +9,6 @@ public interface PetService {
     Set<Pet> listAllPets();
     PetDto savePetDto(PetDto petDto);
     Pet findPetById(Long id);
+    PetDto findPetDtoById(Long id);
 
 }

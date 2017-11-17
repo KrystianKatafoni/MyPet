@@ -16,8 +16,10 @@ Application features:
 - crud operations
 - rest template
 - unit tests
+- mockito
 - validators
 - used project Lombok
 - dependency injection
 - orm mapping via hibernate
-- 
+- modelmapper
+- maven

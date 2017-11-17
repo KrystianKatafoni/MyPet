@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class IndexController {
 
     @RequestMapping({"","/","/index"})
-    public String getIndexPage(Model model){
+    public String getIndexPage(){
         log.debug("Request for IndexPage");
         return "index";
     }
