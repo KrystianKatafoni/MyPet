@@ -9,7 +9,12 @@ import org.springframework.stereotype.Service;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
-
+/**
+ * @author Krystian Katafoni
+ * @since 05.11.2017
+ * Country service which implement one method to display
+ * all countries from database
+ */
 @Service
 public class CountryServiceImpl implements CountryService {
     List<CountryDto> countriesDto;

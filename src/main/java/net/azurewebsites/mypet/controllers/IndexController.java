@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 /**
  * @author Krystian Katafoni
  * @since 16.11.2017
- *
+ * This controller display index page
  */
 @Slf4j
 @Controller

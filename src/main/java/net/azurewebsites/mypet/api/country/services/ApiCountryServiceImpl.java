@@ -13,21 +13,32 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-
+/**
+ * @author Krystian Katafoni
+ * @since 05.11.2017
+ * Implementation of ApiCountryService
+ * This service deserve to get countries from extern api and return list of countries
+ */
 @Service
 public class ApiCountryServiceImpl implements ApiCountryService {
     private RestTemplate restTemplate;
     private CountryApiDtoToCountry countryApiDtoToCountry;
     private final String api_url;
-    private List<CountryApiDto> countryApiDtoList;
-    private List<Country> country = new LinkedList<>();
+    private List<Country> countries = new LinkedList<>();
 
-    public ApiCountryServiceImpl(RestTemplate restTemplate, @Value("${api.url}") String api_url, CountryApiDtoToCountry countryApiDtoToCountry) {
+    public ApiCountryServiceImpl(RestTemplate restTemplate, @Value("${api.url}") String api_url,
+                                 CountryApiDtoToCountry countryApiDtoToCountry) {
+
         this.restTemplate = restTemplate;
         this.api_url = api_url;
         this.countryApiDtoToCountry = countryApiDtoToCountry;
     }
 
+    /**
+     *
+     * @param param this parametr say which information has to be taken from rest api
+     * @return list of all countries
+     */
     @Override
     public List<Country> getCountries(String param) {
         UriComponentsBuilder uriBuilder = UriComponentsBuilder
@@ -36,10 +47,13 @@ public class ApiCountryServiceImpl implements ApiCountryService {
         CountryApiDto[] countryApiDto = restTemplate.getForObject(uriBuilder.toUriString(),CountryApiDto[].class);
         Optional<List<CountryApiDto>> countryApiDTOListOpt = Optional.ofNullable(Arrays.asList(countryApiDto));
         if(countryApiDTOListOpt.isPresent()) {
-            country = countryApiDTOListOpt.get().stream().map(countryApi -> countryApiDtoToCountry.convert(countryApi)).collect(Collectors.toList());
+            countries = countryApiDTOListOpt.get().stream()
+                    .map(countryApi -> countryApiDtoToCountry
+                            .convert(countryApi))
+                    .collect(Collectors.toList());
         }else{
             countryApiDTOListOpt.orElseThrow(IllegalArgumentException::new);
         }
-        return country;
+        return countries;
     }
 }

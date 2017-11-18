@@ -44,8 +44,8 @@ public class RunMyPet implements ApplicationListener<ContextRefreshedEvent> {
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
 
-        saveCountriesToDB();
-        initUnits();
+        //saveCountriesToDB();
+       // initUnits();
     }
 
     /**

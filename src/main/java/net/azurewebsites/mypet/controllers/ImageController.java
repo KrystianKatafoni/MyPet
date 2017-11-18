@@ -16,7 +16,7 @@ import java.io.IOException;
 /**
  * @author Krystian Katafoni
  * @since 16.11.2017
- *
+ * This controller handle adding image to pet and displaying image
  */
 @Slf4j
 @Controller

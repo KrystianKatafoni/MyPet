@@ -8,11 +8,13 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Optional;
-
+/**
+ * @author Krystian Katafoni
+ * @since 05.11.2017
+ * This service implement one method deserve to save file
+ * imported by user
+ */
 @Slf4j
 @Service
 public class ImageServiceImpl implements ImageService {

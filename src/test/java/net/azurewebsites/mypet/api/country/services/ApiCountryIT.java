@@ -15,7 +15,7 @@ import static org.junit.Assert.assertTrue;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class ApiCountryServiceImplTest {
+public class ApiCountryIT {
     @Autowired
     ApiCountryService apiCountryService;
 

@@ -20,7 +20,7 @@ import java.util.Optional;
 /**
  * @author Krystian Katafoni
  * @since 16.11.2017
- *
+ * This controller is for handle saving and displaying pets
  */
 @Slf4j
 @Controller
@@ -49,6 +49,7 @@ public class PetController {
 
         return "pet/petshow";
     }
+
     @GetMapping("pet/new")
     public String newPet(Model model){
         model.addAttribute("petDto", new PetDto());

@@ -1,5 +1,6 @@
 package net.azurewebsites.mypet.mappers;
 
+import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.azurewebsites.mypet.domain.Country;
 import net.azurewebsites.mypet.dto.CountryDto;
@@ -13,6 +14,7 @@ import java.util.Optional;
  * Mapper class which handle mapping objects: Country->CountryDto
  */
 @Slf4j
+
 @Component
 public class CountryToCountryDto {
 
