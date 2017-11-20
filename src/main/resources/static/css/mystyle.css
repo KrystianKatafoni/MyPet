@@ -1,0 +1,32 @@
+body {
+    background-image: url("../images/background.png");
+}
+#dog{
+    background-image: url('../images/dog.png');
+    height: 400px;
+    width: 361px;
+}
+#dog:hover{
+    background-image: url('../images/dog-hoover.png');
+    height: 400px;
+    width: 361px;
+    cursor: pointer;
+}
+#logo{
+    background-image: url('../images/logo.png');
+    height: 124px;
+    width: 900px;
+    cursor: pointer;
+
+}
+.row{
+    margin-top: 30px;
+    margin-bottom: 30px
+}
+.row-m-t{
+    margin-top : 30px
+}
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}

@@ -54,4 +54,10 @@ public class PetServiceIT {
         assertEquals(KIND_NEW, savedPetDto.getKindOfAnimal());
 
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSavePetDtoIllegalArgument() throws Exception {
+
+        PetDto savedPetDto = petService.savePetDto(null);
+    }
 }

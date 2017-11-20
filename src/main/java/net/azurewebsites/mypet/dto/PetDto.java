@@ -11,7 +11,6 @@ import net.azurewebsites.mypet.dto.sizeproperties.WeightDto;
 
 import javax.validation.constraints.NotBlank;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 /**
@@ -37,8 +36,10 @@ public class PetDto {
     private LengthDto length;
 
     private AuthorDto author;
+
     private Set<CommentDto> comments = new HashSet<>();
 
+    @NotBlank
     private String name;
 
     private Byte[] image;

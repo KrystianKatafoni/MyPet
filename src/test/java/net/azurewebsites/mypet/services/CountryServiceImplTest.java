@@ -23,13 +23,16 @@ import static org.mockito.Mockito.when;
 public class CountryServiceImplTest {
 
     CountryService countryService;
-    ModelMapper modelMapper = new ModelMapper();
-    CountryToCountryDto countryToCountryDto = new CountryToCountryDto(modelMapper);
+    ModelMapper modelMapper;
+    CountryToCountryDto countryToCountryDto;
     @Mock
     CountryRepository countryRepository;
 
     @Before
     public void setUp() throws Exception {
+
+        modelMapper = new ModelMapper();
+        countryToCountryDto = new CountryToCountryDto(modelMapper);
         countryService = new CountryServiceImpl(countryRepository, countryToCountryDto);
     }
 
@@ -54,5 +57,7 @@ public class CountryServiceImplTest {
         //then
         verify(countryRepository, times(1)).findAll();
         assertEquals(2, countryList.size());
+        assertEquals(countryTestOne.getId(), countryList.get(0).getId());
+        assertEquals(countryTestTwo.getId(), countryList.get(1).getId());
     }
 }

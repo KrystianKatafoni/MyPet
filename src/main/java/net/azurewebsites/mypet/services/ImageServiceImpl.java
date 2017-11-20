@@ -9,6 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.Optional;
+
 /**
  * @author Krystian Katafoni
  * @since 05.11.2017
@@ -36,10 +37,10 @@ public class ImageServiceImpl implements ImageService {
 
 
             try {
-                int i =0;
+                int i = 0;
                 Byte[] byteObjects = new Byte[file.getBytes().length];
                 for (byte b : file.getBytes()) {
-                    byteObjects[i++]=b;
+                    byteObjects[i++] = b;
                 }
                 petOpt.get().setImage(byteObjects);
                 petRepository.save(petOpt.get());
@@ -47,7 +48,7 @@ public class ImageServiceImpl implements ImageService {
                 log.error("Error occurred", e);
                 e.printStackTrace();
             }
-        }else{
+        } else {
             petOpt.orElseThrow(IllegalArgumentException::new);
             log.error("Pet with id" + petId + "doesn't  exist in database");
         }

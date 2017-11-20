@@ -62,6 +62,14 @@ public class PetController {
 
     @PostMapping("/pet")
     public String saveOrUpdatePet(@Valid @ModelAttribute("petDto") PetDto petDto, BindingResult bindingResult){
+        if(bindingResult.hasErrors()){
+
+            bindingResult.getAllErrors().forEach(objectError -> {
+                log.debug(objectError.toString());
+            });
+
+            return "pet/petform";
+        }
         PetDto savedPetDto = petService.savePetDto(petDto);
         Optional<PetDto> savedPetDtoOpt = Optional.ofNullable(savedPetDto);
         if(savedPetDtoOpt.isPresent()){

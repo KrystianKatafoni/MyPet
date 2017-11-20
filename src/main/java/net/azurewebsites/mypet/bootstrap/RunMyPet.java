@@ -55,7 +55,7 @@ public class RunMyPet implements ApplicationListener<ContextRefreshedEvent> {
         countryList = apiCountryService.getCountries(PARAM);
 
         countryList.stream().forEach(country ->countryRepository.save(country));
-        log.debug("Country list saved from API");
+        log.info("Country list saved from API");
     }
 
     /**

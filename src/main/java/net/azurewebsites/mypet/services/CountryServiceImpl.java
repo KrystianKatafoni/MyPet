@@ -12,7 +12,7 @@ import java.util.stream.StreamSupport;
 /**
  * @author Krystian Katafoni
  * @since 05.11.2017
- * Country service which implement one method to display
+ * Country service which implements one method to return list of all countries
  * all countries from database
  */
 @Service

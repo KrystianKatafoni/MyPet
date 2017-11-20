@@ -2,21 +2,44 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
     <title>My Pet main page</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"
-          th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}">
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-    <script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
-
-    <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-            crossorigin="anonymous" th:src="@{/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
+            crossorigin="anonymous"></script>
+    <link href="css/mystyle.css" type="text/css" rel="stylesheet">
+
 </head>
 <body>
 
-<a href="#" th:href="@{'/pet/new'}">New pet</a>
+<!--<a href="#" th:href="@{'/pet/new'}">New pet</a>
+<figure class="snip1573">
+    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample89.jpg" alt="your pet" />
+    <figcaption>
+        <h3>Add your pet</h3>
+    </figcaption>
+    <a th:href="@{'/pet/new'}"></a>
+</figure>-->
+    <div class="container-fluid">
+        <div class = "row">
+            <div class="col-md-6 col-md-offset-3"><div id="logo"></div></div>
+        </div>
+        <div class = "row">
+            <div class="col-md-6 col-md-offset-1"><div class="row row-m-t"></div></div>
+        </div>
+        <div class = "row">
+            <div class="col-md-6 col-md-offset-1"><div class="row row-m-t"></div></div>
+        </div>
+        <div class = "row">
+            <div class="col-md-6 col-md-offset-3"><a href="#" th:href="@{'/pet/new'}"><div id="dog"></div></a></div>
+        </div>
+    </div>
 </body>
 </html>

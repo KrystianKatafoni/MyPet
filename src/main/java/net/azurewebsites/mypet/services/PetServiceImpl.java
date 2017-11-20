@@ -13,9 +13,14 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 import java.util.Set;
+/**
+ * @author Krystian Katafoni
+ * @since 05.11.2017
+ * This service deserve to handle Pet object
+ */
 @Slf4j
 @Service
-public class PetServiceImpl implements PetService{
+public class PetServiceImpl implements PetService {
     PetToPetDto petToPetDto;
     PetDtoToPet petDtoToPet;
     PetRepository petRepository;
@@ -34,26 +39,23 @@ public class PetServiceImpl implements PetService{
     @Override
     @Transactional
     public PetDto savePetDto(PetDto petDto) {
-            PetDto petDtoReturn= new PetDto();
-            Pet petMapped = petDtoToPet.convert(petDto);
-            Optional<Pet> petMappedOpt = Optional.ofNullable(petMapped);
-            if (petMappedOpt.isPresent()){
-                Pet savedPet = petRepository.save(petMapped);
-                log.debug("Saved pet with id: "+savedPet.getId());
-                petDtoReturn = petToPetDto.convert(savedPet);
-
-            }else{
-            petMappedOpt.orElseThrow(()-> new IllegalArgumentException("Pet object after mapping is null"));
-            log.error("Pet object after mapping is null");
-            }
-            return petDtoReturn;
+        PetDto petDtoReturn = new PetDto();
+        Optional<PetDto> petDtoOpt = Optional.ofNullable(petDto);
+        petDtoOpt.orElseThrow(() -> new IllegalArgumentException("petDto has null value"));
+        //convert
+        Pet petMapped = petDtoToPet.convert(petDtoOpt.get());
+        //save Pet
+        Pet savedPet = petRepository.save(petMapped);
+        log.debug("Saved pet with id: " + savedPet.getId());
+        petDtoReturn = petToPetDto.convert(savedPet);
+        return petDtoReturn;
     }
 
     @Override
     public Pet findPetById(Long id) {
         Optional<Pet> petOpt = petRepository.findById(id);
         petOpt.orElseThrow(NotFoundException::new);
-       return petOpt.get();
+        return petOpt.get();
     }
 
     @Override
