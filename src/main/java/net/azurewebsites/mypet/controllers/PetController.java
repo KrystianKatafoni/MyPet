@@ -47,11 +47,13 @@ public class PetController {
     @GetMapping("/pet/{id}/show")
     public String showPetById(@PathVariable String id, Model model){
 
+        model.addAttribute("petDto", petService.findPetDtoById(Long.valueOf(id)));
         return "pet/petshow";
     }
 
     @GetMapping("pet/new")
     public String newPet(Model model){
+
         model.addAttribute("petDto", new PetDto());
         model.addAttribute("countries", countryService.listAllCountries());
         model.addAttribute("uolList", unitOfLengthService.listAllUols());
@@ -62,14 +64,7 @@ public class PetController {
 
     @PostMapping("/pet")
     public String saveOrUpdatePet(@Valid @ModelAttribute("petDto") PetDto petDto, BindingResult bindingResult){
-        if(bindingResult.hasErrors()){
 
-            bindingResult.getAllErrors().forEach(objectError -> {
-                log.debug(objectError.toString());
-            });
-
-            return "pet/petform";
-        }
         PetDto savedPetDto = petService.savePetDto(petDto);
         Optional<PetDto> savedPetDtoOpt = Optional.ofNullable(savedPetDto);
         if(savedPetDtoOpt.isPresent()){

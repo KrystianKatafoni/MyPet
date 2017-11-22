@@ -16,6 +16,9 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -73,4 +76,18 @@ public class PetControllerTest {
                 .andExpect(status().is3xxRedirection())
                 .andExpect(header().string("Location", "/pet/5/image"));
     }
+
+    @Test
+    public void testShowPetById() throws Exception {
+        Long id = 2L;
+        PetDto petDto = new PetDto();
+        petDto.setId(id);
+        when(petService.findPetDtoById(any())).thenReturn(petDto);
+        mockMvc.perform(get("/pet/"+id+"/show"))
+                .andExpect(status().isOk())
+                .andExpect(model().attributeExists("petDto"))
+                .andExpect(view().name("pet/petshow"));
+        verify(petService, times(1)).findPetDtoById(anyLong());
+    }
+
 }
