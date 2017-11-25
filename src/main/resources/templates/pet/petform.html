@@ -16,6 +16,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous" ></script>
+    <link href="/../css/petform.css" type="text/css" rel="stylesheet">
 </head>
 <body>
 <!--/*@thymesVar id="petDto" type="net.azurewebsites.mypet.dto.PetDto"*/-->
@@ -23,16 +24,18 @@
 <div class = "container-fluid" style="margin-top: 20px">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
-            <form th:object = "${petDto}" th:action="@{/pet/}" method = "post">
+            <form th:object = "${petDto}" th:action="@{/pet}" method = "post">
+
                 <div th:if="${#fields.hasErrors('*')}" class="alert alert-danger">
                     <p>Please Correct Errors Below</p>
                 </div>
-                <div class="panel-group">
-                    <div class="panel panel-success">
+                <div class="panel-group" >
+                    <div class="panel panel-warning">
                         <div class="panel-heading">
                             <h1 class="panel-title">Insert Pet Information</h1>
                         </div>
                         <div class="panel-body">
+                        <div class = "row">
                             <div class="col-md-3 form-group" th:class="${#fields.hasErrors('name')}
                                  ? 'col-md-3 form-group has-error' : 'col-md-3 form-group'">
                                 <label>Pet name:</label>
@@ -43,8 +46,13 @@
                                         </ul>
                                 </span>
                             </div>
+
+                        </div>
+
+
+                            <div class = "row">
                             <div class="col-md-3 form-group">
-                                <label>Kind of Animal:</label>
+                                <label>Kind of Pet:</label>
                                 <select class="form-control" th:field="*{kindOfAnimal}">
                                     <option th:each="kindOfAnimalValue : ${T(net.azurewebsites.mypet.domain.KindOfAnimal).values()}"
                                             th:value="${kindOfAnimalValue.name()}"
@@ -53,8 +61,9 @@
                                     </option>
                                 </select>
                             </div>
+
                             <div class="col-md-3 form-group">
-                                <label> Temper of Animal:</label>
+                                <label> Temper of Pet:</label>
                                 <select class ="form-control" th:field = "*{temper}">
                                     <option th:each="temperValue : ${T(net.azurewebsites.mypet.domain.Temper).values()}"
                                             th:value="${temperValue.name()}"
@@ -63,7 +72,9 @@
                                     </option>
                                 </select>
                             </div>
+                            </div>
                             <!--/*@thymesVar id="pet" type="net.azurewebsites.mypet.dto.PetDto"*/-->
+                            <div class = "row">
                             <div class="col-md-3 form-group">
                                 <label>Country:</label>
                                 <select class="form-control" th:field="${petDto.country.id}">
@@ -75,10 +86,13 @@
                                 </select>
 
                             </div>
+                            </div>
+                            <div class = "row">
                             <div class="col-md-3 form-group">
                                 <label>Weight:</label>
                                 <input type="text" class="form-control" th:field="*{weight.value}"/>
                             </div>
+
                             <div class="col-md-3 form-group">
                                 <label>Unit:</label>
                                 <select class="form-control" th:name="weight.uow.id" >
@@ -89,10 +103,13 @@
                                     </option>
                                 </select>
                             </div>
+                            </div>
+                            <div class = "row">
                             <div class="col-md-3 form-group">
                                 <label>Length:</label>
                                 <input type="text" class="form-control" th:field="*{length.value}"/>
                             </div>
+
                             <div class="col-md-3 form-group">
                                 <label>Unit:</label>
                                 <select class="form-control" th:name="length.uol.id" >
@@ -103,24 +120,20 @@
                                     </option>
                                 </select>
                             </div>
-
-                            <div class="col-md-3 form-group" th:class="${#fields.hasErrors('author.nickname')}
-                                 ? 'col-md-3 form-group has-error' : 'col-md-3 form-group'">
-                                <label>Author:</label>
-                                <input type="text" class="form-control" th:field="*{author.nickname}"  th:errorclass="has-error"/>
-                                <span class="help-block" th:if="${#fields.hasErrors('author.nickname')}">
-                                        <ul>
-                                            <li th:each="err : ${#fields.errors('author.nickname')}" th:text="${err}"/>
-                                        </ul>
-                                </span>
                             </div>
-                            <input type="hidden" th:value="${def}" th:name="rating.finalRating" th:id="rating.finalRating" />
+                            <div class = "row">
+                            <div class="col-md-3 form-group">
+                                <label>Author:</label>
+                                <input type="text" class="form-control" th:field="*{author.nickname}"/>
+                            </div>
+                            </div>
+                            <input type="hidden" th:value="${rating}" th:name="rating.finalRating" th:id="rating.finalRating" />
                         </div>
 
                     </div>
 
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-default">Submit</button>
             </form>
         </div>
     </div>

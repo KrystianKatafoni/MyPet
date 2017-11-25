@@ -1,5 +1,7 @@
 body {
-    background-image: url("../images/background.png");
+    background-color: #212121;
+    background-image: url("https://www.transparenttextures.com/patterns/foggy-birds.png");
+
 }
 #dog{
     background-image: url('../images/dog.png');
@@ -7,7 +9,7 @@ body {
     width: 361px;
 }
 #dog:hover{
-    background-image: url('../images/dog-hoover.png');
+    background-image: url('../images/dog-hover.png');
     height: 400px;
     width: 361px;
     cursor: pointer;
@@ -17,7 +19,17 @@ body {
     height: 124px;
     width: 900px;
     cursor: pointer;
-
+}
+#beaver{
+    background-image: url('../images/beaver.png');
+    height: 400px;
+    width: 376px;
+}
+#beaver:hover{
+    background-image: url('../images/beaver-hover.png');
+    height: 400px;
+    width: 376px;
+    cursor: pointer;
 }
 .row{
     margin-top: 30px;

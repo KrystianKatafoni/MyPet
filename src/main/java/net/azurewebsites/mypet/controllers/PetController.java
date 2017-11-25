@@ -50,6 +50,10 @@ public class PetController {
         model.addAttribute("petDto", petService.findPetDtoById(Long.valueOf(id)));
         return "pet/petshow";
     }
+    @GetMapping("/pet/browse")
+    public String showPetBrowser(Model model){
+        return "/";
+    }
 
     @GetMapping("pet/new")
     public String newPet(Model model){
@@ -58,13 +62,21 @@ public class PetController {
         model.addAttribute("countries", countryService.listAllCountries());
         model.addAttribute("uolList", unitOfLengthService.listAllUols());
         model.addAttribute("uowList", unitOfWeightService.listAllUows());
-        model.addAttribute("def", Scale.VERY_BAD);
+        model.addAttribute("rating", Scale.VERY_BAD);
         return "pet/petform";
     }
 
     @PostMapping("/pet")
     public String saveOrUpdatePet(@Valid @ModelAttribute("petDto") PetDto petDto, BindingResult bindingResult){
 
+        if(bindingResult.hasErrors()){
+
+            bindingResult.getAllErrors().forEach(objectError -> {
+                log.debug(objectError.toString());
+            });
+
+            return "pet/petform";
+        }
         PetDto savedPetDto = petService.savePetDto(petDto);
         Optional<PetDto> savedPetDtoOpt = Optional.ofNullable(savedPetDto);
         if(savedPetDtoOpt.isPresent()){

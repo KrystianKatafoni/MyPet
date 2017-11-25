@@ -41,7 +41,7 @@ public class ImageController {
 
         imageService.saveImageFile(Long.valueOf(id), file);
         log.debug("Image saved in saveImage");
-        return "redirect:/index";
+        return "redirect:/pet/"+id+"/show";
     }
     @GetMapping("pet/{id}/petimage")
     public void renderImage(@PathVariable String id, HttpServletResponse response) throws IOException{

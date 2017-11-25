@@ -55,7 +55,7 @@ public class PetControllerTest {
        mockMvc.perform(get("/pet/new"))
                 .andExpect(status().isOk())
                 .andExpect(model().attributeExists("petDto", "countries", "uolList", "uowList",
-                        "def"))
+                        "rating"))
                 .andExpect(view().name("pet/petform"));
     }
 
@@ -65,12 +65,14 @@ public class PetControllerTest {
         //given
         PetDto petDto = new PetDto();
         petDto.setId(5L);
-
+        petDto.setName("Daisy");
         when(petService.savePetDto(any())).thenReturn(petDto);
 
         //when
         mockMvc.perform(post("/pet")
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED)
+                .param("id","")
+                .param("name", "some name")
 
         )
                 .andExpect(status().is3xxRedirection())
@@ -82,6 +84,7 @@ public class PetControllerTest {
         Long id = 2L;
         PetDto petDto = new PetDto();
         petDto.setId(id);
+
         when(petService.findPetDtoById(any())).thenReturn(petDto);
         mockMvc.perform(get("/pet/"+id+"/show"))
                 .andExpect(status().isOk())

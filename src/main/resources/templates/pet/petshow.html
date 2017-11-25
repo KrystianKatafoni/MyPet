@@ -1,10 +1,102 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Show pet page</title>
+    <title>Pet form page</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous" ></script>
+    <link href="/../css/petshow.css" type="text/css" rel="stylesheet">
 </head>
 <body>
+<!--/*@thymesVar id="petDto" type="net.azurewebsites.mypet.dto.PetDto"*/-->
 
+<div class = "container-fluid" style="margin-top: 20px">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <form th:object = "${petDto}" th:action="@{/pet}" method = "post">
+
+                <div class="panel-group" >
+                    <div class="panel panel-warning">
+                        <div class="panel-heading">
+                            <h1 class="panel-title">Pet Information</h1>
+                        </div>
+                        <div class="panel-body">
+                            <div class = "row">
+                                <div class="col-md-3 form-group">
+                                    <label>Pet name:</label>
+                                    <input type="text" class="form-control" th:field="*{name}" readonly />
+
+                                </div>
+
+                            </div>
+
+
+                            <div class = "row">
+                                <div class="col-md-3 form-group">
+                                    <label>Kind of Pet:</label>
+                                    <input class="form-control" th:field="*{kindOfAnimal}" readonly />
+
+                                </div>
+
+                                <div class="col-md-3 form-group">
+                                    <label> Temper of Pet:</label>
+                                    <input class ="form-control" th:field = "*{temper}" readonly />
+                                </div>
+                            </div>
+                            <!--/*@thymesVar id="pet" type="net.azurewebsites.mypet.dto.PetDto"*/-->
+                            <div class = "row">
+                                <div class="col-md-3 form-group">
+                                    <label>Country:</label>
+                                    <input class="form-control" th:field="${petDto.country.name}" readonly />
+
+                                </div>
+                            </div>
+                            <div class = "row">
+                                <div class="col-md-3 form-group">
+                                    <label>Weight:</label>
+                                    <input type="text" class="form-control" th:field="*{weight.value}" readonly />
+                                </div>
+
+                                <div class="col-md-3 form-group">
+                                    <label>Unit:</label>
+                                    <input class="form-control" th:field="*{weight.uow.description}"readonly />
+                                </div>
+                            </div>
+                            <div class = "row">
+                                <div class="col-md-3 form-group">
+                                    <label>Length:</label>
+                                    <input type="text" class="form-control" th:field="*{length.value}" readonly />
+                                </div>
+
+                                <div class="col-md-3 form-group">
+                                    <label>Unit:</label>
+                                    <input class="form-control" th:field="*{length.uol.description}" readonly />
+                                </div>
+                            </div>
+                            <div class = "row">
+                                <div class="col-md-3 form-group">
+                                    <label>Author:</label>
+                                    <input type="text" class="form-control" th:field="*{author.nickname}" readonly />
+                                </div>
+                            </div>
+                            <input type="hidden" th:value="${rating}" th:name="rating.finalRating" th:id="rating.finalRating" />
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 </body>
 </html>

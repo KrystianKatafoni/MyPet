@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../../../favicon.ico">
     <title>My Pet main page</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -14,22 +13,15 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
-    <link href="css/mystyle.css" type="text/css" rel="stylesheet">
+    <link href="css/index.css" type="text/css" rel="stylesheet">
 
 </head>
 <body>
-
-<!--<a href="#" th:href="@{'/pet/new'}">New pet</a>
-<figure class="snip1573">
-    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample89.jpg" alt="your pet" />
-    <figcaption>
-        <h3>Add your pet</h3>
-    </figcaption>
-    <a th:href="@{'/pet/new'}"></a>
-</figure>-->
     <div class="container-fluid">
-        <div class = "row">
-            <div class="col-md-6 col-md-offset-3"><div id="logo"></div></div>
+        <div class = "row justify-content-center">
+            <div class="col col-md-offset-3"><div id="logo"></div></div>
+            <div class="col"></div>
+            <div class="col"></div>
         </div>
         <div class = "row">
             <div class="col-md-6 col-md-offset-1"><div class="row row-m-t"></div></div>
@@ -38,7 +30,8 @@
             <div class="col-md-6 col-md-offset-1"><div class="row row-m-t"></div></div>
         </div>
         <div class = "row">
-            <div class="col-md-6 col-md-offset-3"><a href="#" th:href="@{'/pet/new'}"><div id="dog"></div></a></div>
+            <div class="col-md-3 col-md-offset-3 "><a href="#" th:href="@{'/pet/new'}"><div id="dog"></div></a></div>
+            <div class="col-md-4 col-md-offset-0 "><a href="#" th:href="@{'/pet/browse'}"><div id="beaver"></div></a></div>
         </div>
     </div>
 </body>
