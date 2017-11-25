@@ -7,10 +7,7 @@ body {
     margin-top: 10px;
     margin-bottom: 10px;
 }
-.col-centered{
-    float: none;
-    margin: 0 auto;
-}
+
 .panel-body{
     background-color: #212121;
     background-image: url("https://www.transparenttextures.com/patterns/fabric-1-dark.png");
