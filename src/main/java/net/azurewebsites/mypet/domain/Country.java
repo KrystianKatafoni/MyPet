@@ -16,7 +16,6 @@ import java.util.Set;
  */
 @Getter
 @Setter
-@EqualsAndHashCode
 @NoArgsConstructor
 @Entity
 public class Country {
