@@ -11,8 +11,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collectors;
+
 /**
  * @author Krystian Katafoni
  * @since 05.11.2017
@@ -32,8 +33,12 @@ public class PetServiceImpl implements PetService {
     }
 
     @Override
-    public Set<Pet> listAllPets() {
-        return null;
+    public List<Pet> listAllPets() {
+
+        List<Pet> petList = new LinkedList<>();
+        petRepository.findAll().iterator().forEachRemaining(petList::add);
+
+        return petList;
     }
 
     @Override
@@ -64,5 +69,20 @@ public class PetServiceImpl implements PetService {
         petOpt.orElseThrow(NotFoundException::new);
         PetDto petDto = petToPetDto.convert(petOpt.get());
         return petDto;
+    }
+
+    @Override
+    public Pet savePet(Pet pet) {
+        Pet savedPet = petRepository.save(pet);
+        log.debug("Saved pet with id: " + savedPet.getId());
+        return savedPet;
+    }
+
+    @Override
+    public List<PetDto> listAllDtoPets() {
+        List<Pet> petList = new LinkedList<>();
+        petRepository.findAll().iterator().forEachRemaining(petList::add);
+        List<PetDto> petDtoList = petList.stream().map(petToPetDto::convert).collect(Collectors.toList());
+        return petDtoList;
     }
 }

@@ -24,7 +24,8 @@ public class Comment {
     private Pet pet;
     @Lob
     private String text;
-    @ManyToOne
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
     private Author author;
 
 }

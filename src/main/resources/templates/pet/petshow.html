@@ -19,7 +19,7 @@
     <link href="/../css/petshow.css" type="text/css" rel="stylesheet">
 </head>
 <body>
-<!--/*@thymesVar id="petDto" type="net.azurewebsites.mypet.dto.PetDto"*/-->
+
 
 <div class = "container-fluid" style="margin-top: 20px">
     <div class="row">
@@ -27,9 +27,10 @@
             <form th:object = "${petDto}" th:action="@{/pet}" method = "post">
 
                 <div class="panel-group" >
-                    <div class="panel panel-warning">
+                    <div class="panel panel-default">
                         <div class="panel-heading">
                             <h1 class="panel-title">Pet Information</h1>
+                            <a th:href = "@{'/'}">Back to home</a>
                         </div>
                         <div class="panel-body">
                             <div class = "row">
@@ -38,8 +39,13 @@
                                     <input type="text" class="form-control" th:field="*{name}" readonly />
 
                                 </div>
-
+                                <div class="col-md-6">
+                                    <img src=""
+                                         th:src="@{'/pet/'+${petDto.id}+'/petimage'}"
+                                         width="200" height="200">
+                                </div>
                             </div>
+
 
 
                             <div class = "row">
@@ -54,7 +60,7 @@
                                     <input class ="form-control" th:field = "*{temper}" readonly />
                                 </div>
                             </div>
-                            <!--/*@thymesVar id="pet" type="net.azurewebsites.mypet.dto.PetDto"*/-->
+
                             <div class = "row">
                                 <div class="col-md-3 form-group">
                                     <label>Country:</label>
@@ -94,8 +100,52 @@
                         </div>
                     </div>
                 </div>
+
+
             </form>
+            <div  class="panel-group" >
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h1 class="panel-title">Pet comments</h1>
+                    </div>
+                    <div class="panel-body">
+                        <div class = "row" th:each="com  : ${petDto.comments}">
+                            <div class="col-md-3 form-group" >
+                                <label th:if="${com.author != null}" th:text="${com.author.nickname}">cos</label>
+                                <textarea class="form-control input-sm" th:text="${com.text}" readonly/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <form th:object = "${newComment}" th:action="@{'/pet/' + ${petDto.getId()} + '/comment'}" method = "post">
+            <div class="panel-group" >
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h1 class="panel-title">Add comment</h1>
+                    </div>
+                    <div class="panel-body">
+                        <div class = "row">
+                            <div class="col-md-3 form-group">
+                                <label>Add Comment:</label>
+                                <textarea class="form-control input-sm" rows="5" th:field="${newComment.text}" />
+                               <label>Author of Comment:</label>
+                               <input type="text" class="form-control" th:field="${newComment.author.nickname}" />
+
+                            </div>
+
+                        </div>
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </div>
+                </div>
+            </div>
+
+            </form>
+
         </div>
+
+
+    </div>
     </div>
 </div>
 </body>

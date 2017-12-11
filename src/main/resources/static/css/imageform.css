@@ -1,7 +1,5 @@
 body {
-    background-color: #212121;
-    background-image: url("https://www.transparenttextures.com/patterns/foggy-birds.png");
-
+    background-color: #2c3e50;
 }
 .row{
     /* margin-top: 30px;
@@ -12,7 +10,7 @@ body {
     margin: 0 auto;
 }
 .panel-body{
-    background-color: #212121;
+    background-color: #2c3e50;
     background-image: url("https://www.transparenttextures.com/patterns/fabric-1-dark.png");
 
     border-style: none;

@@ -18,5 +18,6 @@ public class CommentDto {
     private Long id;
     private String text;
     private AuthorDto author;
+    private Long petDtoId;
 
 }
