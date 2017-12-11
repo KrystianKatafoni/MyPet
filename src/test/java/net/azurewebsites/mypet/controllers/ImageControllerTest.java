@@ -8,10 +8,12 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
+import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
+import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.times;
@@ -67,6 +69,28 @@ public class ImageControllerTest {
                 .andExpect(status().is3xxRedirection())
                 .andExpect(header().string("Location", "/pet/1/show"));
         verify(imageService, times(1)).saveImageFile(anyLong(), any());
+    }
+    @Test
+    public void testRenderImage() throws Exception {
+        PetDto petDto = new PetDto();
+        petDto.setId(1L);
+        String s = "fake image text";
+        Byte[] bytesBoxed = new Byte[s.getBytes().length];
+        int i = 0;
+        for (byte primByte : s.getBytes()){
+            bytesBoxed[i++] = primByte;
+        }
+
+        petDto.setImage(bytesBoxed);
+
+        when(petService.findPetDtoById(anyLong())).thenReturn(petDto);
+        MockHttpServletResponse response = mockMvc.perform(get("/pet/1/petimage"))
+                .andExpect(status().isOk())
+                .andReturn().getResponse();
+
+        byte[] reponseBytes = response.getContentAsByteArray();
+
+        assertEquals(s.getBytes().length, reponseBytes.length);
     }
 
 }
