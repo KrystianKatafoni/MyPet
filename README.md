@@ -2,6 +2,7 @@
 [![codecov](https://codecov.io/gh/KrystianKatafoni/mypet/branch/master/graph/badge.svg)](https://codecov.io/gh/KrystianKatafoni/mypet)
 
 MyPet - application where users can share information about own pets.
+
 Technology:
 Spring Boot
 Maven
@@ -23,3 +24,6 @@ Application features:
 - orm mapping via hibernate
 - modelmapper
 - maven
+
+ToDo:
+- rating for each pet
